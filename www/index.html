@@ -189,6 +189,10 @@
     function btnAClick(e){
       active = true;
       startTime = new Date();
+      $("#btnA").css("background-color","black");
+      $("#btnB").css("background-color","white");
+      $("#btnC").css("background-color","white");
+      $("#btnD").css("background-color","white");
         
         
     }
@@ -196,6 +200,10 @@
     // ButtonBがクリックされた時の処理
     function btnBClick(e){
         active = false;
+        $("#btnA").css("background-color","white");
+        $("#btnB").css("background-color","black");
+        $("#btnC").css("background-color","white");
+        $("#btnD").css("background-color","whtie");
 
     }
 
@@ -209,6 +217,10 @@
         period = 60 * parseInt( $("#minute").val() ) + parseInt( $("#second").val() );
         $("#time").html("経過時間： ０");
         $("#remain").html("残り時間： " + m +"分" + s +  "秒" );
+        $("#btnA").css("background-color","white");
+        $("#btnB").css("background-color","white");
+        $("#btnC").css("background-color","black");
+        $("#btnD").css("background-color","whtie");
         
     }
 
@@ -222,6 +234,10 @@
         period = 20;
         $("#time").html("経過時間： ０");
         $("#remain").html("残り時間： " + m +"分" + s +  "秒" );
+        $("#btnA").css("background-color","white");
+        $("#btnB").css("background-color","white");
+        $("#btnC").css("background-color","white");
+        $("#btnD").css("background-color","black");
     }
 
    
