@@ -202,7 +202,7 @@
     // ButtonCがクリックされた時の処理
     function btnCClick(e){
         alarm();
-
+        $("body").css("background-color","skyblue");
         active = false;
         var m =parseInt(period/60);
         var s =parseInt( period % 60);
@@ -212,10 +212,12 @@
         
     }
 
+     //ボタンDがクリックされた時の処理
      function btnDClick(e){
         alarm();
-         var m =parseInt(period/60);
-         var s =parseInt( period % 60);
+        $("body").css("background-color","skyblue");
+        var m =parseInt(period/60);
+        var s =parseInt( period % 60);
         active = false;
         period = 20;
         $("#time").html("経過時間： ０");
@@ -243,6 +245,12 @@
         if(rest <= 0){
           active = false;
           alarm();
+        }
+        if(rest <= 15){
+            $("body").css("background-color","yellow");
+        }
+        if(rest <= 5){
+            $("body").css("background-color","lightgray");
         }
 
         
