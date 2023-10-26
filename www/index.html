@@ -38,6 +38,9 @@
         $('#btnC').click(function(e) {
             btnCClick(e);
         });
+        $('#btnD').click(function(e){
+           btnDClick(e);
+        });
         init();
     });
     
@@ -162,11 +165,13 @@
         $('#btnA').prop('disabled', false);
         $('#btnB').prop('disabled', false);
         $('#btnC').prop('disabled', false);
+        $('#btnD').prop('disabled', false);
         
     }
 
     // Alarmの処理
     function alarm(){
+
         var canvas = $("#mycanvas")[0];
         var ctx = canvas.getContext("2d");
         var img = new Image();
@@ -205,6 +210,19 @@
         $("#remain").html("残り時間： " + period);
         
     }
+
+     function btnDClick(e){
+        alarm();
+
+        active = false;
+        period = 20;
+
+        
+        $("#time").html("経過時間： ０");
+        $("#remain").html("残り時間： " + period);
+    }
+
+   
     
  
     // 繰り返し実行する処理
@@ -221,6 +239,8 @@
           active = false;
           alarm();
         }
+
+        
         
     } 
 
@@ -237,6 +257,7 @@
     <button id="btnA">Start</button>  
     <button id="btnB">Stop</button>  
     <button id="btnC">Set</button>  
+    <button id="btnD">20set</button>
     <input type="number" id="minute" value=0 >
     <input type="number" id="second" value=15 >
 </body>
