@@ -171,7 +171,6 @@
 
     // Alarmの処理
     function alarm(){
-
         var canvas = $("#mycanvas")[0];
         var ctx = canvas.getContext("2d");
         var img = new Image();
@@ -205,21 +204,22 @@
         alarm();
 
         active = false;
+        var m =parseInt(period/60);
+        var s =parseInt( period % 60);
         period = 60 * parseInt( $("#minute").val() ) + parseInt( $("#second").val() );
         $("#time").html("経過時間： ０");
-        $("#remain").html("残り時間： " + period);
+        $("#remain").html("残り時間： " + m +"分" + s +  "秒" );
         
     }
 
      function btnDClick(e){
         alarm();
-
+         var m =parseInt(period/60);
+         var s =parseInt( period % 60);
         active = false;
         period = 20;
-
-        
         $("#time").html("経過時間： ０");
-        $("#remain").html("残り時間： " + period);
+        $("#remain").html("残り時間： " + m +"分" + s +  "秒" );
     }
 
    
@@ -230,10 +230,15 @@
         if(active){
           var time = parseInt( (new Date() - startTime)/1000);
           var rest = period - time;
-          $("#time").html("経過時間： " + time);
-          $("#remain").html("残り時間： " + rest);
+          var m = parseInt(rest / 60);
+          var s = parseInt(rest % 60);
+          var tm = parseInt(time / 60);
+          var ts = parseInt(time % 60);
+          $("#time").html("経過時間： " + tm + "分" +ts );
+          $("#remain").html("残り時間： " + m + "分" + s + "秒");
           analog(rest);
         }
+
 
         if(rest <= 0){
           active = false;
